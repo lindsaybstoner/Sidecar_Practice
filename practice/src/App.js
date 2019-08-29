@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  state = {
+    clicked: false,
+    textInfo: "click the button",
+  }
+
+  handleChange = () => {
+    this.setState({
+      clicked: true,
+      textInfo: "you've clicked the button"
+    });
+  }
+
+  render() {
+    return (
+      <>
+        <div>
+          <header>
+            <p>Hello I am a boring react app trying to learn redux! Hi</p>
+            <button onClick={this.handleChange}>Click ME!!</button>
+            <p>{this.state.textInfo}</p>
+          </header>
+        </div>
+      </>
+    )
+  }
+};
 
 export default App;
